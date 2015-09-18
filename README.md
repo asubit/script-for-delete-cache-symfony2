@@ -10,7 +10,7 @@ The script can't be execute by anybody.
 For this there is two security controls in the script :
 
 1. **Control IP address**
-   In the script there is a PHP array named "$ips" where you have to add your IP address for access the script.
+   In the script there is a PHP array named "***$ips***" where you have to add your IP address for access the script.
 
 2. **Control secret token**
    When your IP address is enter in the "$ips" array your have to define a secret token "$okToken"
