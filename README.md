@@ -9,7 +9,7 @@ The script can't be execute by anybody.
 
 For this there is two security controls in the script :
 
-1. *Control IP address*
+1. **Control IP address**
    In the script there is a PHP array named "$ips" where you have to add your IP address for access the script.
 
 2. **Control secret token**
@@ -19,14 +19,14 @@ For this there is two security controls in the script :
 Installation
 ------------
 
-Simple! Just put this script in your "./web" directory of your Symfony2 project.
+Simple! Just put this script in your "*./web*" directory of your Symfony2 project.
 
 Execute
 -------
 
-Access your script : "www.your-domain.com/web/delete-cache.php".
+Access your script : "*www.your-domain.com/web/delete-cache.php*".
 
-Don't forget the token : "www.your-domain.com/web/delete-cache.php?token=123".
+**Don't forget the token** : "*www.your-domain.com/web/delete-cache.php?token=123*".
 
 What's doing this script exactly ?
 ----------------------------------
