@@ -29,9 +29,9 @@ function DeleteDirectory($dir) {
                 if($file != '.' && $file != '..' && $file != '.svn') {
                     if(is_dir($dir .'/'. $file)) {
                         echo '<br/>DIR - '.$dir.'/'.$file;
-                        // On supprime le contenu du dossier
+                        // We delete the directory content
                         DeleteDirectory($dir.'/'.$file);
-                        // On supprime le dossier
+                        // We delete the directory
                         rmdir($dir.'/'.$file);
                     } else {
                         echo '<br/>FIL - '.$dir.'/'.$file;
@@ -46,32 +46,18 @@ function DeleteDirectory($dir) {
 }
 
 // Test IP
-
 $ips = array(
     '127.0.0.1',
     // Add here your IP address
 );
-
 $okIp 		= in_array(@$_SERVER['REMOTE_ADDR'], $ips);
 
-// Test token
-
+// Change token here
 $okToken 	= !(!isset($_GET['token']) || $_GET['token'] != '2A3ACB494FC1C8F7D8D78623B452E');
-
-
-
-
+// Test token
 if($okIp && $okToken) {
 
-    /*
-    if(rmdir('../vendor') {
-        print 'vendor';
-    } else {
-        print 'erreur vendor';
-    }
-    */
-    
-    // Gestion du cache APC, avec petit test si l'extension est bien chargée
+    // Manage APC cache, with little test if the extension is busy
     if(in_array('apc', get_loaded_extensions())) {
     
         /*echo '<br/>APC USER CACHE';
@@ -79,7 +65,6 @@ if($okIp && $okToken) {
         var_dump(apc_cache_info('user'));
         echo '</pre>';*/
         echo 'PURGE APC USER CACHE : '.(apc_clear_cache('user') ? 'SUCCESS' : 'FAILURE').'<br />';
-
         echo '<br />-----<br />';
 
        /* echo '<br/>APC SYSTEM CACHE';
@@ -87,7 +72,6 @@ if($okIp && $okToken) {
         var_dump(apc_cache_info());
         echo '</pre>';*/
         echo 'PURGE APC SYSTEM CACHE : '.(apc_clear_cache() ? 'SUCCESS' : 'FAILURE').'<br />';
-
         echo '<br />----- ----- -----<br />';
         
     } else {
@@ -96,12 +80,10 @@ if($okIp && $okToken) {
         
     }
     
-    // --------
-    
-    // Gestion du cache SF
+    // Manage Symfony cache
     $dir = '../app/cache';
 
-    echo '<br/>DEBUT PURGE CACHE';
+    echo '<br/>BEGIN PURGE CACHE';
     
     if(is_dir($dir)) {
         if($dh = opendir($dir)) {
@@ -109,9 +91,9 @@ if($okIp && $okToken) {
                 if(is_dir($dir.'/'.$file) && $file != '.' && $file != '..' && $file != '.svn') {
 
                     echo '<br/>'.$dir.'/'.$file;
-                    // On supprime le contenu du dossier
+                    // We delete the directory content
                     DeleteDirectory($dir.'/'.$file);
-                    // On supprime le dossier
+                    // We delete the directory
                     rmdir($dir.'/'.$file);
 
                 }
@@ -119,10 +101,10 @@ if($okIp && $okToken) {
             closedir($dh);
         }
     } else  {
-        die('Le repertoire specifie n\'existe pas');
+        die('Specified directory does not exist');
     }
 
-    echo '<br/>FIN PURGE CACHE';
+    echo '<br/>END PURGE CACHE';
 
 } else {
 
