@@ -1,6 +1,4 @@
-# Script for delete Symfony2 cache
-
-Useful script for clear Symfony2 cache in production environnement where you can't use SSH access.
+# Symfony2 clear cache without use SSH acces
 
 Security
 --------
