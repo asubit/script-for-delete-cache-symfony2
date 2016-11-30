@@ -5,10 +5,6 @@ Useful script for clear Symfony2 cache in production environnement where you can
 Security
 --------
 
-The script can't be execute by anybody.
-
-For this there is two security controls in the script :
-
 1. **Control IP address**
    In the script there is a PHP array named "*$ips*" where you have to add your IP address for access the script.
 
@@ -19,14 +15,18 @@ For this there is two security controls in the script :
 Installation
 ------------
 
-Simple! Just put this script in your "*./web*" directory of your Symfony2 project.
+From `./web` directory of your Symfony2 project
+
+`git clone https://github.com/asubit/script-for-delete-cache-symfony2.git`
+
+or
+
+`wget https://github.com/asubit/script-for-delete-cache-symfony2/archive/master.zip`
 
 Execute
 -------
 
-Access your script : "*www.your-domain.com/web/delete-cache.php*".
-
-**Don't forget the token** : "*www.your-domain.com/web/delete-cache.php?token=123*".
+Access your script : "*www.your-domain.com/web/delete-cache.php?token=okToken*".
 
 What's doing this script exactly ?
 ----------------------------------
